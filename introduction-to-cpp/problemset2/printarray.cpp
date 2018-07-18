@@ -1,12 +1,20 @@
 #include <iostream>
 using namespace std;
 
+#define WIDTH 3
+#define LENGTH 2
+
 void printArray(int size, int array[]){
   for(int i = 0;i < size; i++){
     cout << array[i];
     if(i != size -1)
       cout << ", ";
   }
+  cout << endl;
+}
+
+void printNestedArray(int size1, int size2, int *array[]){
+  printArray(size2, array[0]);
 }
 
 void reverse(int size, int array[]){
@@ -17,10 +25,27 @@ void reverse(int size, int array[]){
   }
 }
 
+void transpose(const int input[][LENGTH], int output[][WIDTH]){
+  for(int widx=0;widx < WIDTH; widx++){
+    for(int lidx=0; lidx < LENGTH; lidx++){
+      output[lidx][widx] = input[widx][lidx];
+    }
+  }
+}
+
 int main(){
-  int array[] = {1, 3, 5, 7, 9};
-  int size = sizeof(array) / sizeof(*array);
-  reverse(size, array);
-  printArray(size, array);
+  int array[][LENGTH]= {{1,2}, {3,4}, {5,6}};
+  int outarray[][WIDTH] = {{-1,-1,-1},{-1,-1,-1}};
+
+  for(int i=0;i<WIDTH; i++){
+     printArray(sizeof(array[i]) / sizeof(*array[i]), array[i]);
+  };
+  
+  transpose(array, outarray);
+  
+  for(int i=0;i<LENGTH; i++){
+     printArray(sizeof(outarray[i]) / sizeof(*outarray[i]), outarray[i]);
+  };
+   
   return 0;
 }
