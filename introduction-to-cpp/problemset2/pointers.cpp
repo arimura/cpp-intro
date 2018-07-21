@@ -14,11 +14,25 @@ int length(char *str){
   return len;
 }
 
+int length2(const char *str){
+  int length = 0;
+  while(*(str + length) != '\0'){
+    ++length;
+  }
+  return length;
+}
+
 void swap(int *l, int *r){
   int *t;
    *t = *l;
    *l = *r;
    *r = *t;
+}
+
+void swap_pointer(int **x, int **y){
+  int *tmp = *x;
+  *x = *y;
+  *y = tmp;
 }
 
 int main(){
@@ -28,4 +42,10 @@ int main(){
   int t2 = 3;
   swap(&t1, &t2);
   cout << t1 << ", " << t2 << endl;
+
+  //swap pointers
+  int x =5, y=6;
+  int *ptr1 = &x, *ptr2 = &y;
+  swap_pointer(&ptr1, &ptr2);
+  cout << *ptr1 << ',' << *ptr2 << endl;
 }
