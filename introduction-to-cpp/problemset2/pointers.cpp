@@ -14,6 +14,18 @@ int length(char *str){
   return len;
 }
 
+void swap(int *l, int *r){
+  int *t;
+   *t = *l;
+   *l = *r;
+   *r = *t;
+}
+
 int main(){
-  cout << length("hoge");
+  char *hoge = (char*)"hoge";
+  cout << length(hoge) << endl;
+  int t1 = 1;
+  int t2 = 3;
+  swap(&t1, &t2);
+  cout << t1 << ", " << t2 << endl;
 }
