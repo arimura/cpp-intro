@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra
 TARGET = std_test
-SRCS = StdDest.cpp
+SRCS = StdTest.cpp
 
 all: $(TARGET)
 
